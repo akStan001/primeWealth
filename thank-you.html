@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | PrimeGrowth Investments</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>PrimeGrowth</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="thank-you-container">
+        <div class="thank-you-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Thank You, <span id="userName"></span>!</h2>
+            <p class="confirmation">We've received your investment application for <span class="highlight" id="investmentAmount"></span>.</p>
+            
+            <div class="receipt">
+                <h3>Your Investment Details:</h3>
+                <table>
+                    <tr>
+                        <td><i class="fas fa-user"></i> Full Name:</td>
+                        <td id="receipt-name"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-envelope"></i> Email:</td>
+                        <td id="receipt-email"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-phone"></i> Phone:</td>
+                        <td id="receipt-phone"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-chart-line"></i> Plan:</td>
+                        <td id="receipt-plan"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-dollar-sign"></i> Amount:</td>
+                        <td id="receipt-amount"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-wallet"></i> Payment Method:</td>
+                        <td id="receipt-method"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="next-steps">
+                <h3>What Happens Next?</h3>
+                <ol>
+                    <li><i class="fas fa-envelope"></i> Check your email for confirmation</li>
+                    <li><i class="fas fa-user-tie"></i> Our agent will contact you within 24 hours</li>
+                    <li><i class="fas fa-money-bill-wave"></i> Fund your account with provided details</li>
+                    <li><i class="fas fa-calendar-check"></i> Receive returns after 90 days</li>
+                </ol>
+            </div>
+
+            <div class="contact-support">
+                <p>Need immediate assistance?</p>
+                <a href="mailto:support@primegrowth.com" class="cta-button">
+                    <i class="fas fa-headset"></i> Contact Support
+                </a>
+            </div>
+
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Homepage
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrimeGrowth Investments. All rights reserved.</p>
+                <p class="disclaimer">*Returns are not guaranteed. Past performance does not indicate future results. Investing involves risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Display all user data
+        if (urlParams.has('name')) {
+            document.getElementById('userName').textContent = urlParams.get('name');
+            document.getElementById('receipt-name').textContent = urlParams.get('name');
+        }
+        
+        if (urlParams.has('email')) {
+            document.getElementById('receipt-email').textContent = urlParams.get('email');
+        }
+        
+        if (urlParams.has('phone')) {
+            document.getElementById('receipt-phone').textContent = urlParams.get('phone');
+        }
+        
+        if (urlParams.has('investmentPlan')) {
+            document.getElementById('receipt-plan').textContent = urlParams.get('investmentPlan');
+        }
+        
+        if (urlParams.has('investmentAmount')) {
+            document.getElementById('investmentAmount').textContent = '$' + urlParams.get('investmentAmount');
+            document.getElementById('receipt-amount').textContent = '$' + urlParams.get('investmentAmount');
+        }
+        
+        if (urlParams.has('paymentMethod')) {
+            document.getElementById('receipt-method').textContent = urlParams.get('paymentMethod');
+        }
+    </script>
+</body>
+</html>
